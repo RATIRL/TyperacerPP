@@ -30,32 +30,46 @@ int main()
     uniform_int_distribution<> dist(0, num_sentences - 1); // Setting min and max aka uniform distribution of all the items
                                                            // so that each item has the same chance to be picked
 
-    // Create the random index finally
-    int random_index = dist(gen);
-    string target_sentence = sentences[random_index];
+    char play_again = 'y';
 
-    cout << "Welcome to TyperacerPP!" << endl
-         << endl;
-    cout << "Type the following sentence: " << endl;
-    cout << "Random sentence: " << target_sentence << endl;
-
-    // Ask user to type the sentence
-    string user_input;
-    cout << "Your input: ";
-    getline(cin, user_input);
-
-    // Check if the input matches the target sentence
-    if (user_input == target_sentence)
+    while (play_again == 'y' || play_again == 'Y')
     {
-        cout << "Correct!" << endl;
-    }
-    else
-    {
-        cout << "Sorry, try again... it's not completely correct." << endl;
+
+        // Create the random index finally
+        int random_index = dist(gen);
+        string target_sentence = sentences[random_index];
+
+        cout << "Welcome to TyperacerPP!" << endl
+             << endl;
+        cout << "Type the following sentence: " << endl;
+        cout << "Random sentence: " << target_sentence << endl;
+
+        // Ask user to type the sentence
+        string user_input;
+        cout << "Your input: ";
+        getline(cin, user_input);
+
+        // Check if the input matches the target sentence
+        if (user_input == target_sentence)
+        {
+            cout << "Correct!" << endl;
+        }
+        else
+        {
+            cout << "Sorry, try again... it's not completely correct." << endl;
+        }
+
+        // Ask if the user wants to try again
+        cout << "Do you want to try again? (y/n): ";
+        cin >> play_again;
+        cin.ignore(); // ignore remaining newline character
+
+        // Clear screen for better readability
+        cout << string(50, '\n');
     }
 
-    // Pause the program at the end
-    cout << "Press a button to continue..." << endl;
-    cin.get();
+    // End of program message
+    cout << "Thank you for playing TyperacerPP! Goodbye." << endl;
+
     return 0;
 }
