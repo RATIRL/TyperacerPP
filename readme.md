@@ -1,0 +1,1 @@
+Welcome to TyperacerPP, a lightweight cpp typeracer app!
