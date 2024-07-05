@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
-#include <random> //https://en.cppreference.com/w/cpp/header/random
+#include <random>    //https://en.cppreference.com/w/cpp/header/random
+#include <windows.h> 
 
 using namespace std;
 
@@ -62,10 +63,8 @@ int main()
         // Ask if the user wants to try again
         cout << "Do you want to try again? (y/n): ";
         cin >> play_again;
-        cin.ignore(); // ignore remaining newline character
-
-        // Clear screen for better readability
-        cout << string(50, '\n');
+        cin.ignore(); // Ignore remaining newline character
+        system("cls");
     }
 
     // End of program message
