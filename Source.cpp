@@ -4,7 +4,8 @@
 
 using namespace std;
 
-int main(){
+int main()
+{
     // Array with a few predetermined random sentences
     string sentences[] = {
         "The quick brown fox jumps over the lazy dog.",
@@ -31,10 +32,27 @@ int main(){
 
     // Create the random index finally
     int random_index = dist(gen);
+    string target_sentence = sentences[random_index];
 
     cout << "Welcome to TyperacerPP!" << endl
          << endl;
-    cout << "Random sentence: " << sentences[random_index] << endl;
+    cout << "Type the following sentence: " << endl;
+    cout << "Random sentence: " << target_sentence << endl;
+
+    // Ask user to type the sentence
+    string user_input;
+    cout << "Your input: ";
+    getline(cin, user_input);
+
+    // Check if the input matches the target sentence
+    if (user_input == target_sentence)
+    {
+        cout << "Correct!" << endl;
+    }
+    else
+    {
+        cout << "Sorry, try again... it's not completely correct." << endl;
+    }
 
     // Pause the program at the end
     cout << "Press a button to continue..." << endl;
